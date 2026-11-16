@@ -4,14 +4,19 @@ import { AppService } from './app.service';
 
 import { Member } from './entity/member.entity';
 import { Rating } from './entity/rating.entity';
+import { Favorite } from './entity/favorite.entity';
 
 import { ConfigModule, ConfigService } from "@nestjs/config"
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { MemberController } from './controller/member.controller';
 import { RatingController } from "./controller/rating.controller";
+import { FavortieController } from './controller/favorite.controller';
+import { MovieRecordController } from './controller/movie-record.controller';
 import { MemberService } from './service/member.service';
 import { RatingService } from "./service/rating.service";
+import { FavoriteService } from './service/favorite.service';
+import { MovieRecordService } from './service/movie-record.service';
 
 import { JwtModule } from '@nestjs/jwt';
 import { AuthController } from './controller/auth.controller';
@@ -31,7 +36,7 @@ import { AuthService } from './service/auth.service';
       autoLoadEntities: true,
       synchronize: false,
     }),
-    TypeOrmModule.forFeature([Member, Rating]),
+    TypeOrmModule.forFeature([Member, Rating, Favorite]),
     JwtModule.registerAsync({
       global: true,
       inject: [ConfigService],
@@ -48,12 +53,16 @@ import { AuthService } from './service/auth.service';
     MemberController,
     RatingController,
     AuthController,
+    FavortieController,
+    MovieRecordController,
   ],
 
   providers: [
     MemberService,
     RatingService,
     AuthService,
+    FavoriteService,
+    MovieRecordService,
   ],
 })
 export class AppModule {}

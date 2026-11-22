@@ -25,7 +25,7 @@ import { AuthService } from './service/auth.service';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: process.env.NODE_ENV === 'production' ? '.env.production' : '.env.local' }),
     TypeOrmModule.forRoot({
       type: "mysql",
       host: process.env.DB_HOST,

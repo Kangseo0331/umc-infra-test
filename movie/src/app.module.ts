@@ -11,7 +11,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { MemberController } from './controller/member.controller';
 import { RatingController } from "./controller/rating.controller";
-import { FavortieController } from './controller/favorite.controller';
+import { FavoriteController } from './controller/favorite.controller';
 import { MovieRecordController } from './controller/movie-record.controller';
 import { MemberService } from './service/member.service';
 import { RatingService } from "./service/rating.service";
@@ -53,7 +53,7 @@ import { AuthService } from './service/auth.service';
     MemberController,
     RatingController,
     AuthController,
-    FavortieController,
+    FavoriteController,
     MovieRecordController,
   ],
 

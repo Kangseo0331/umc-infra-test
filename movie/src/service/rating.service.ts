@@ -39,6 +39,8 @@ export class RatingService {
         return ratings.map(RatingResponseDto.from);
     }
 
+
+    
     async create(memberId: number, dto: CreateRatingDto): Promise<RatingResponseDto> {
         const member = await this.memberRepository.findOneBy({ memberId });
         if(!member) {
